@@ -40,6 +40,8 @@
   },
   "dependencies": {
     "@elastic/elasticsearch": "7.10.0",
-    "moment": "2.29.1"
+    "aws-sdk": "^2.998.0",
+    "moment": "2.29.1",
+    "util": "^0.12.4"
   }
 }
