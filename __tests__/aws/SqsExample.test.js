@@ -34,7 +34,7 @@ describe("Test Containers With S3", () => {
 
     sqs = new AWS.SQS({
       endpoint: awsEndpoint,
-    });
+    }); // point aws client at localstack
 
     sqs.createQueue = promisify(sqs.createQueue);
 
