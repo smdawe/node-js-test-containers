@@ -1,8 +1,9 @@
 import { promisify } from "util";
-export default async (sqs, QueueUrl) => {
-  sqs.receiveMessage = promisify(sqs.receiveMessage);
 
-  const { Messages } = await sqs.receiveMessage({ QueueUrl });
+export default async (sqsClient, QueueUrl) => {
+  sqsClient.receiveMessage = promisify(sqsClient.receiveMessage);
 
-  return Messages[0].Body;
+  const { Messages } = await sqsClient.receiveMessage({ QueueUrl }); // Get messages from a queue
+
+  return Messages[0].Body; // Return body of the first message
 };

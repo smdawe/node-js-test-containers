@@ -22,23 +22,25 @@ describe("Test Containers With S3", () => {
     AWS.config.update({ region: "us-east-1" }); // Localstack uses us-east-1 by default
 
     return runningLocalstackContainer;
-  }, 30000); // Allow container sometime to start
+  }, 30000); // Allow container some time to start
 
   let sqs;
   let QueueUrl;
 
   beforeEach(async () => {
+    const awsPort = runningLocalstackContainer.getMappedPort(SQS_PORT); // Get the port that has been mapped to 9200
+    const awsAddress = runningLocalstackContainer.getHost(); // Get the address of the container
+    const awsEndpoint = `http://${awsAddress}:${awsPort}`;
+
     sqs = new AWS.SQS({
-      endpoint: `http://localhost:${runningLocalstackContainer.getMappedPort(
-        SQS_PORT
-      )}`,
+      endpoint: awsEndpoint,
     });
 
     sqs.createQueue = promisify(sqs.createQueue);
 
     const QueueName = "test";
 
-    const createResult = await sqs.createQueue({ QueueName });
+    const createResult = await sqs.createQueue({ QueueName }); // create a queue
 
     QueueUrl = createResult.QueueUrl;
   });

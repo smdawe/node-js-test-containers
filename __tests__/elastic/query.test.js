@@ -5,7 +5,7 @@ import { ELASTICSEARCH_PORT, ELASTICSEARCH_INDEX } from "./config";
 
 import { data } from "./data";
 import { index } from "./index";
-import elasticsearch from "../../elastic/elasticsearch";
+import elasticsearch from "../../elastic/query";
 
 describe("Test Containers With Elasticsearch", () => {
   // Declare the conatiner we want to use
@@ -36,7 +36,7 @@ describe("Test Containers With Elasticsearch", () => {
 
     elasticsearchClient = new Client({ node: elasticsearchEndpoint });
 
-    const x = await elasticsearchClient.indices.create({
+    await elasticsearchClient.indices.create({
       index: ELASTICSEARCH_INDEX,
       body: index,
     }); // Create test index
