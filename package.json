@@ -1,0 +1,45 @@
+{
+  "name": "node-js-test-containers",
+  "version": "1.0.0",
+  "description": "node-js-test-containers",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint --ext .js .",
+    "eslint": "eslint --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smdawe/node-js-test-containers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smdawe/node-js-test-containers/issues"
+  },
+  "homepage": "https://github.com/smdawe/node-js-test-containers#readme",
+  "jest": {
+    "testRegex": "(/__tests__/.*|(\\.|/))test.js$",
+    "collectCoverage": true,
+    "reporters": [
+      "default"
+    ],
+    "collectCoverageFrom": [
+      "**/*.js"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-optional-chaining": "7.10.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "10.0.3",
+    "babel-jest": "^23.4.2",
+    "jest": "^26.6.3",
+    "testcontainers": "7.20.0"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "7.10.0",
+    "moment": "2.29.1"
+  }
+}
