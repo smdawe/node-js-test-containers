@@ -5,7 +5,7 @@ import { ELASTICSEARCH_PORT, ELASTICSEARCH_INDEX } from "./config";
 
 import { data } from "./data";
 import { index } from "./index";
-import elasticsearch from "../../example/elasticsearch";
+import elasticsearch from "../../elastic/elasticsearch";
 
 describe("Test Containers With Elasticsearch", () => {
   // Declare the conatiner we want to use
