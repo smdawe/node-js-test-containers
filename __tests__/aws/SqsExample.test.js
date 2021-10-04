@@ -5,7 +5,7 @@ import { SQS_PORT } from "./config";
 
 import SqsExample from "../../aws/SqsExample";
 
-describe("Test Containers With S3", () => {
+describe("Test Containers With SQS", () => {
   // Declare the conatiner we want to use
   const localstackContainer = new GenericContainer(
     "localstack/localstack:0.11.0"
